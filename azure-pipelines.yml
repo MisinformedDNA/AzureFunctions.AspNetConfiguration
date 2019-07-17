@@ -12,16 +12,24 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  major: 0
+  minor: 1
+  patch: $[counter(join(variables['major'], variables['minor']), 0)]
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-- task: DotNetCoreCLI@2
+- task: NuGetCommand@2
+  displayName: nuget pack
   inputs:
     command: 'pack'
     packagesToPack: 'src/**/*.csproj'
-    nobuild: true
+    versioningScheme: 'byPrereleaseNumber'
+    majorVersion: $(major)
+    minorVersion: $(minor)
+    patchVersion: $(patch)
 - task: NuGetCommand@2
+  displayName: nuget push
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
