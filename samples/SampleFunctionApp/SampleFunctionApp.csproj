@@ -10,7 +10,7 @@
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.28" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Functions.AspNetConfiguration\Functions.AspNetConfiguration.csproj" />
+    <ProjectReference Include="..\..\src\AzureFunctions.AspNetConfiguration\AzureFunctions.AspNetConfiguration.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="appsettings.Release.json">
