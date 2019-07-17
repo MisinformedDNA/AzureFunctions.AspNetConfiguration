@@ -12,9 +12,6 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  major: 0
-  minor: 1
-  patch: $[counter(join(variables['major'], variables['minor']), 0)]
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
@@ -25,10 +22,6 @@ steps:
     command: 'pack'
     packagesToPack: 'src/**/*.csproj'
     nobuild: true
-    versioningScheme: 'byPrereleaseNumber'
-    majorVersion: $(major)
-    minorVersion: $(minor)
-    patchVersion: $(patch)
 - task: NuGetCommand@2
   displayName: nuget push
   inputs:
