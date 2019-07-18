@@ -14,7 +14,9 @@ namespace SampleFunctionApp
             {
                 { "setting5", "memory" }
             };
-            var configuration = builder.UseAspNetConfiguration(c => c.AddInMemoryCollection(settings));
+            builder.UseAspNetConfiguration(c => c.AddInMemoryCollection(settings));
+
+            var configuration = builder.GetConfiguration();
             var value = configuration["setting1"];
         }
     }

@@ -15,7 +15,7 @@ namespace YellowCounter.AzureFunctions.AspNetConfiguration
         /// Use the same configuration providers that are provided in ASP.NET by default.
         /// </summary>
         /// <param name="builder"></param>
-        public static IConfigurationRoot UseAspNetConfiguration(this IFunctionsHostBuilder builder, Action<IConfigurationBuilder> action = null)
+        public static IFunctionsHostBuilder UseAspNetConfiguration(this IFunctionsHostBuilder builder, Action<IConfigurationBuilder> action = null)
         {
             var functionsConfig = builder.Services.GetService<IConfiguration>();
             var hostingContext = builder.Services.GetService<HostBuilderContext>();
@@ -28,12 +28,15 @@ namespace YellowCounter.AzureFunctions.AspNetConfiguration
             env.ApplicationName = env.ApplicationName ?? Assembly.GetCallingAssembly().GetName().Name;
 
             UseAspNetConfiguration(hostingContext, config);
-
             action?.Invoke(config);
 
-            IConfigurationRoot builtConfig = config.Build();
-            builder.Services.Replace(ServiceDescriptor.Singleton(typeof(IConfiguration), builtConfig));
-            return builtConfig;
+            builder.Services.Replace(ServiceDescriptor.Singleton(typeof(IConfiguration), config.Build()));
+            return builder;
+        }
+
+        public static IConfiguration GetConfiguration(this IFunctionsHostBuilder builder)
+        {
+            return builder.Services.GetService<IConfiguration>();
         }
 
         private static string GetCurrentDirectory()
