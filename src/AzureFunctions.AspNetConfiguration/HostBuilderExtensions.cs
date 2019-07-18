@@ -31,8 +31,6 @@ namespace YellowCounter.AzureFunctions.AspNetConfiguration
 
             action?.Invoke(config);
 
-
-
             IConfigurationRoot builtConfig = config.Build();
             builder.Services.Replace(ServiceDescriptor.Singleton(typeof(IConfiguration), builtConfig));
             return builtConfig;
