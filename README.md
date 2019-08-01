@@ -28,6 +28,19 @@ namespace SampleFunctionApp
 }
 ```
 
+## Complex objects
+Unlike local.settings.json, appsettings.json supports complex/sectioned settings such as
+
+```json
+{
+  "section": {
+    "hello": "world"
+  },
+}
+```
+
+They are retrieved via standard means, as one would expect.
+
 ## Configuration Hierarchy
 The configuration added ASP.NET configuration *on top* of the default Azure Functions configuration settings. So we get this hierarchy:
 
