@@ -13,7 +13,7 @@
     <ProjectReference Include="..\..\src\AzureFunctions.AspNetConfiguration\AzureFunctions.AspNetConfiguration.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="appsettings.Release.json">
+    <None Update="appsettings.Production.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="appsettings.Development.json">

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 
@@ -11,10 +12,12 @@ namespace SampleFunctionApp
     public class Function1
     {
         private readonly IConfiguration _configuration;
+        private readonly HostBuilderContext _hostBuilderContext;
 
-        public Function1(IConfiguration configuration)
+        public Function1(IConfiguration configuration, HostBuilderContext hostBuilderContext)
         {
             _configuration = configuration;
+            _hostBuilderContext = hostBuilderContext;
         }
 
         [FunctionName("Function1")]
@@ -22,6 +25,8 @@ namespace SampleFunctionApp
             [HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequest req,
             ILogger log)
         {
+            log.LogInformation($"Environment: {_hostBuilderContext.HostingEnvironment.EnvironmentName}");
+
             for (int i = 1; i <= 5; i++)
             {
                 var key = $"setting{i}";

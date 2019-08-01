@@ -3,7 +3,6 @@
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-    "setting4": "local.settings.json",
-    "ASPNETCORE_ENVIRONMENT": "Production"
+    "setting4": "local.settings.json"
   }
 }
