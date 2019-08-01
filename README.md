@@ -4,6 +4,8 @@ Adds ASP.NET Core Configuration capabilities to Azure Functions
 Azure Functions typically relies on local.settings.json and Azure environment variables for appsettings. 
 If you are here, you want an experience similar to ASP.NET.
 
+![Nuget](https://img.shields.io/nuget/v/AzureFunctions.AspNetConfiguration)
+
 ## Configure
 
 To configure this plugin, add a NuGet reference to [AzureFunctions.AspNetConfiguration](https://www.nuget.org/packages/AzureFunctions.AspNetConfiguration/)
