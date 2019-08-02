@@ -27,7 +27,7 @@ namespace YellowCounter.AzureFunctions.AspNetConfiguration
             IHostingEnvironment env = hostingContext.HostingEnvironment;
             env.ApplicationName = env.ApplicationName ?? Assembly.GetCallingAssembly().GetName().Name;
 
-            UseAspNetConfiguration(hostingContext, config);
+            hostingContext.UseAspNetConfiguration(config);
             action?.Invoke(config);
 
             builder.Services.Replace(ServiceDescriptor.Singleton(typeof(IConfiguration), config.Build()));
@@ -52,7 +52,7 @@ namespace YellowCounter.AzureFunctions.AspNetConfiguration
         /// <summary>
         /// Uses the same code as found at https://github.com/aspnet/AspNetCore/blob/master/src/DefaultBuilder/src/WebHost.cs.
         /// </summary>
-        private static void UseAspNetConfiguration(HostBuilderContext hostingContext, IConfigurationBuilder config)
+        private static void UseAspNetConfiguration(this HostBuilderContext hostingContext, IConfigurationBuilder config)
         {
             var env = hostingContext.HostingEnvironment;
 
