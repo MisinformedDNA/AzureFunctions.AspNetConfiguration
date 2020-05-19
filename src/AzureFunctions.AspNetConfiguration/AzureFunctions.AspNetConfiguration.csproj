@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;netcoreapp3.0</TargetFrameworks>
     <Authors>Dan Friedman</Authors>
     <Company>YellowCounter</Company>
     <Description>Adds ASP.NET Core Configuration capabilities to Azure Functions</Description>
@@ -15,4 +15,8 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.0.0" />
   </ItemGroup>
 
+   <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' ">
+     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.4" />
+   </ItemGroup>
+  
 </Project>

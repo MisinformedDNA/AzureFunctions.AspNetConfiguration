@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctions.AspNetConfig
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleFunctionApp", "samples\SampleFunctionApp\SampleFunctionApp.csproj", "{EFAAC03B-D9AF-4CAE-8C85-567B8AAD0AB2}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleV3FunctionApp", "samples\SampleV3FunctionApp\SampleV3FunctionApp.csproj", "{8C4E174E-AF61-4D26-9001-5EDBED15C049}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EFAAC03B-D9AF-4CAE-8C85-567B8AAD0AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFAAC03B-D9AF-4CAE-8C85-567B8AAD0AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFAAC03B-D9AF-4CAE-8C85-567B8AAD0AB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C4E174E-AF61-4D26-9001-5EDBED15C049}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C4E174E-AF61-4D26-9001-5EDBED15C049}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C4E174E-AF61-4D26-9001-5EDBED15C049}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C4E174E-AF61-4D26-9001-5EDBED15C049}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

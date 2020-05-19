@@ -14,17 +14,22 @@ namespace YellowCounter.AzureFunctions.AspNetConfiguration
         /// <summary>
         /// Use the same configuration providers that are provided in ASP.NET by default.
         /// </summary>
-        /// <param name="builder"></param>
         public static IFunctionsHostBuilder UseAspNetConfiguration(this IFunctionsHostBuilder builder, Action<IConfigurationBuilder> action = null)
         {
-            var functionsConfig = builder.Services.GetService<IConfiguration>();
-            var hostingContext = builder.Services.GetService<HostBuilderContext>();
+#if NETSTANDARD2_0
+            var services = builder.Services;
+#else
+            var services = builder.Services.BuildServiceProvider();
+#endif
+
+            var functionsConfig = services.GetService<IConfiguration>();
+            var hostingContext = services.GetService<HostBuilderContext>();
 
             var config = new ConfigurationBuilder()
                 .AddConfiguration(functionsConfig)
                 .SetBasePath(GetCurrentDirectory());
 
-            IHostingEnvironment env = hostingContext.HostingEnvironment;
+            var env = hostingContext.HostingEnvironment;
             env.ApplicationName = env.ApplicationName ?? Assembly.GetCallingAssembly().GetName().Name;
 
             UseAspNetConfiguration(hostingContext, config);
