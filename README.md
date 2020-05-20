@@ -4,6 +4,8 @@ Adds ASP.NET Core Configuration capabilities to Azure Functions
 Azure Functions typically relies on local.settings.json and Azure environment variables for appsettings. 
 If you are here, you want an experience similar to ASP.NET.
 
+[![Build Status](https://dev.azure.com/yellowcounter/GitHub/_apis/build/status/AzureFunctions.AspNetConfiguration?branchName=master)](https://dev.azure.com/yellowcounter/GitHub/_build/latest?definitionId=26&branchName=master)
+
 ![Nuget](https://img.shields.io/nuget/v/AzureFunctions.AspNetConfiguration)
 
 ## Configure
