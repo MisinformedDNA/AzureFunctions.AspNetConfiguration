@@ -8,5 +8,20 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'misinformeddna'
+    scannerMode: 'MSBuild'
+    projectKey: '$SonarProjectKey)'
+    projectName: '$SonarProjectName)'
+    
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+
+- task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
