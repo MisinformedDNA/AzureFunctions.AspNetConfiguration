@@ -6,7 +6,7 @@ If you are here, you want an experience similar to ASP.NET.
 
 [![Build Status](https://dev.azure.com/yellowcounter/GitHub/_apis/build/status/AzureFunctions.AspNetConfiguration?branchName=master)](https://dev.azure.com/yellowcounter/GitHub/_build/latest?definitionId=26&branchName=master)
 
-![Nuget](https://img.shields.io/nuget/v/AzureFunctions.AspNetConfiguration)
+[![Nuget](https://img.shields.io/nuget/v/AzureFunctions.AspNetConfiguration)](https://www.nuget.org/packages/AzureFunctions.AspNetConfiguration/)
 
 ## Configure
 
