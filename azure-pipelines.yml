@@ -16,7 +16,7 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: '$(SonarProjectKey)'
     projectName: '$(SonarProjectName)'
-    extraProperties: 'sonar.sources=src/**/*'
+#    extraProperties: 'sonar.sources=src/**/*'
     
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
